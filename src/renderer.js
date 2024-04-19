@@ -12,7 +12,7 @@ function h(nodeName, attributes, ...args) {
   return { nodeName, attributes, children };
 }
 
-function render(virtualNode) {
+function innerRender(virtualNode) {
   // Strings just convert to #text Nodes:
   if (virtualNode.split) return document.createTextNode(virtualNode);
 
@@ -28,19 +28,25 @@ function render(virtualNode) {
 
   // render (build) and then append child nodes:
   (virtualNode.children || []).forEach(childDomNode =>
-    domNode.appendChild(render(childDomNode))
+    domNode.appendChild(innerRender(childDomNode))
   );
 
   return domNode;
 }
 
+function render(rootNode, virtualNode) {
+  const virtualDOM = innerRender(virtualNode);
+
+  rootNode.appendChild(virtualDOM);
+}
+
 // JSX -> VDOM:
 /** @jsx h */
-const VirtualNode = <div id="foo">Hello!</div>;
-
-// VDOM -> DOM:
-const VirtualDOM = render(VirtualNode);
+const App = <div id="foo">Hello! World sdfsdfsdfsdfsdf</div>;
 
 const root = document.getElementById('root');
+
+// VDOM -> DOM:
+render(root, App);
 
 root.appendChild(VirtualDOM);
