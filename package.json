@@ -1,0 +1,19 @@
+{
+  "name": "jsx-renderer",
+  "version": "1.0.0",
+  "description": "This is a jsx renderer I wanted to build for fun. I simply just followed the article linked in the README.md. I wanted to see what JSX is doing under the hood.",
+  "main": "renderer.js",
+  "scripts": {
+    "build": "babel src -d dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.4",
+    "@babel/plugin-syntax-jsx": "^7.24.1",
+    "@babel/preset-env": "^7.24.4",
+    "@babel/preset-react": "^7.24.1"
+  }
+}

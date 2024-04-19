@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    [
+      "@babel/preset-react",
+      {
+        "pragma": "h", // replace React.createElement with h
+        "pragmaFrag": "'fragment'", // optional, for JSX fragments
+        "throwIfNamespace": false // disables namespace checks
+      }
+    ]
+  ]
+}
